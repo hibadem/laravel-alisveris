@@ -38,12 +38,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             @auth
                             <div class="box">
                                     <a href="" style="color:white">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>                               
-                                </div>
+                            </div>
+                            <div class="box">
+                            <a onClick="event.preventDefault();document.getElementById('logout-form').submit();" href="{{route('logout')}}">Çıkış Yap</a>
+                            <form action="{{route('logout')}}" method="POST" id="logout-form">
+                                    {{ csrf_field() }}
+                                </form>
+                                
+                            </div>
                                 
                             @endauth
                             @guest                           
                             <div class="box">
-                                <a href="" style="color:white">Giris Yap</a>                               
+                                <a href="{{route('login')}}" style="color:white">Giris Yap</a>                               
                             </div>
                             <div class="box1">
                                 <a href="{{url('/register')}}" style="color:white">Kayit Ol</a>
@@ -54,12 +61,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-md-6 top-header-left">
                         <div class="cart box_1">
-                            <a href="checkout.html">
+                            <a href="{{route('basket.index')}}">
                                  <div class="total">
-                                    <span class="simpleCart_total"></span></div>
-                                    <img src="images/cart-1.png" alt="" />
+                                 <span style="font-size:13px;">{{\App\Helper\sepetHelper::totalPrice()}} ₺</span></div>
+                                    <img src={{asset('images/cart-1.png')}} alt="" />
                             </a>
-                            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                            <p><a href="{{route('basket.flush')}}" class="simpleCart_empty">Sepeti Temizle</a></p>
                             <div class="clearfix"> </div>
                         </div>
                     </div>
@@ -79,138 +86,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="header">
                     <div class="col-md-9 header-left">
                     <div class="top-nav">
-                        <ul class="memenu skyblue"><li class="active"><a href="index.html">Home</a></li>
-                            <li class="grid"><a href="#">Men</a>
-                                <div class="mepanel">
-                                    <div class="row">
-                                        <div class="col1 me-one">
-                                            <h4>Shop</h4>
-                                            <ul>
-                                                <li><a href="products.html">New Arrivals</a></li>
-                                                <li><a href="products.html">Blazers</a></li>
-                                                <li><a href="products.html">Swem Wear</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Handbags</a></li>
-                                                <li><a href="products.html">T-Shirts</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">My Shopping Bag</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Style Zone</h4>
-                                            <ul>
-                                                <li><a href="products.html">Shoes</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">Brands</a></li>
-                                                <li><a href="products.html">Coats</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Trousers</a></li>
-                                            </ul>	
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Popular Brands</h4>
-                                            <ul>
-                                                <li><a href="products.html">499 Store</a></li>
-                                                <li><a href="products.html">Fastrack</a></li>
-                                                <li><a href="products.html">Casio</a></li>
-                                                <li><a href="products.html">Fossil</a></li>
-                                                <li><a href="products.html">Maxima</a></li>
-                                                <li><a href="products.html">Timex</a></li>
-                                                <li><a href="products.html">TomTom</a></li>
-                                                <li><a href="products.html">Titan</a></li>
-                                            </ul>		
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="grid"><a href="#">Women</a>
-                                <div class="mepanel">
-                                    <div class="row">
-                                        <div class="col1 me-one">
-                                            <h4>Shop</h4>
-                                            <ul>
-                                                <li><a href="products.html">New Arrivals</a></li>
-                                                <li><a href="products.html">Blazers</a></li>
-                                                <li><a href="products.html">Swem Wear</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Handbags</a></li>
-                                                <li><a href="products.html">T-Shirts</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">My Shopping Bag</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Style Zone</h4>
-                                            <ul>
-                                                <li><a href="products.html">Shoes</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">Brands</a></li>
-                                                <li><a href="products.html">Coats</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Trousers</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Popular Brands</h4>
-                                            <ul>
-                                                <li><a href="products.html">499 Store</a></li>
-                                                <li><a href="products.html">Fastrack</a></li>
-                                                <li><a href="products.html">Casio</a></li>
-                                                <li><a href="products.html">Fossil</a></li>
-                                                <li><a href="products.html">Maxima</a></li>
-                                                <li><a href="products.html">Timex</a></li>
-                                                <li><a href="products.html">TomTom</a></li>
-                                                <li><a href="products.html">Titan</a></li>
-                                            </ul>	
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="grid"><a href="#">Kids</a>
-                                <div class="mepanel">
-                                    <div class="row">
-                                        <div class="col1 me-one">
-                                            <h4>Shop</h4>
-                                            <ul>
-                                                <li><a href="products.html">New Arrivals</a></li>
-                                                <li><a href="products.html">Blazers</a></li>
-                                                <li><a href="products.html">Swem Wear</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Handbags</a></li>
-                                                <li><a href="products.html">T-Shirts</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">My Shopping Bag</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Style Zone</h4>
-                                            <ul>
-                                                <li><a href="products.html">Shoes</a></li>
-                                                <li><a href="products.html">Watches</a></li>
-                                                <li><a href="products.html">Brands</a></li>
-                                                <li><a href="products.html">Coats</a></li>
-                                                <li><a href="products.html">Accessories</a></li>
-                                                <li><a href="products.html">Trousers</a></li>
-                                            </ul>	
-                                        </div>
-                                        <div class="col1 me-one">
-                                            <h4>Popular Brands</h4>
-                                            <ul>
-                                                <li><a href="products.html">499 Store</a></li>
-                                                <li><a href="products.html">Fastrack</a></li>
-                                                <li><a href="products.html">Casio</a></li>
-                                                <li><a href="products.html">Fossil</a></li>
-                                                <li><a href="products.html">Maxima</a></li>
-                                                <li><a href="products.html">Timex</a></li>
-                                                <li><a href="products.html">TomTom</a></li>
-                                                <li><a href="products.html">Titan</a></li>
-                                            </ul>	
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="grid"><a href="typo.html">Blog</a>
-                            </li>
+                        <ul class="memenu skyblue">
+                            <li class="active"><a href="{{route('index')}}">Anasayfa</a></li>
+                            @foreach (\App\Kategoriler::all() as $key=>$value)
+                            <li class="grid"><a href="{{route('cat',['selflink'=>$value['selflink']])}}">{{$value['name']}}</a>
+                            @endforeach    
                             <li class="grid"><a href="contact.html">Contact</a>
                             </li>
                         </ul>
@@ -219,8 +99,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-3 header-right"> 
                     <div class="search-bar">
-                        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                        <form action="{{route('search')}}">
+                        <input type="text" name="q" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
                         <input type="submit" value="">
+                        </form>
                     </div>
                 </div>
                 <div class="clearfix"> </div>

@@ -31,4 +31,16 @@ class User extends Authenticatable
     public function getFullNameAttribute(){
         return "{$this->name} {$this->surname}";
     }
+    static function getField($id,$field)
+    {
+        $c = User::where('id','=',$id)->count();
+        if ($c!=0) {
+            $w = User::where('id','=',$id)->get();
+            return $w[0][$field];
+        }
+        else
+        {
+            return "Silinmiş kullanıcı";
+        }
+    }
 }

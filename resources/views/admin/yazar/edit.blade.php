@@ -28,7 +28,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group label-floating is-empty">
                                                     @if($data[0]['image']!="")
-                                                    <img src="{{asset($data[0]['image'])}}" alt="">               
+                                                    <img src="{{asset($data[0]['image'])}}" style="width:200px;height:200px" alt="">               
                                                     @endif
                                                 
                                                 <input style="opacity:1;position:inherit" type="file" name="image" >
